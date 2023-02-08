@@ -22,15 +22,23 @@ export default function SignUpUI({
       <Wrap>
         <InputWrap>
           <span>이메일</span>
-          <input onChange={(e) => onChangeEmail(e)} />
+          <input data-testid="email-input" onChange={(e) => onChangeEmail(e)} />
         </InputWrap>
         <ErrorText>{emailErrorTxt}</ErrorText>
         <InputWrap>
           <span>비밀번호</span>
-          <input type="password" onChange={(e) => onChangePassword(e)} />
+          <input
+            data-testid="password-input"
+            type="password"
+            onChange={(e) => onChangePassword(e)}
+          />
         </InputWrap>
         <ErrorText>{passwordErrorTxt}</ErrorText>
-        <button disabled={!isVerifySignupForm} onClick={onClickSignUp}>
+        <button
+          data-testid="signup-button"
+          disabled={!isVerifySignupForm}
+          onClick={onClickSignUp}
+        >
           가입하기
         </button>
       </Wrap>

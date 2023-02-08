@@ -18,13 +18,21 @@ export default function SignInPresenter({
       <Wrap>
         <InputWrap>
           <span>이메일</span>
-          <input onChange={(e) => onChangeEmail(e)} />
+          <input data-testid="email-input" onChange={(e) => onChangeEmail(e)} />
         </InputWrap>
         <InputWrap>
           <span>비밀번호</span>
-          <input type="password" onChange={(e) => onChangePassword(e)} />
+          <input
+            data-testid="password-input"
+            type="password"
+            onChange={(e) => onChangePassword(e)}
+          />
         </InputWrap>
-        <button disabled={!isVerifySigninForm} onClick={onClickSignIn}>
+        <button
+          data-testid="signin-button"
+          disabled={!isVerifySigninForm}
+          onClick={onClickSignIn}
+        >
           로그인
         </button>
       </Wrap>
