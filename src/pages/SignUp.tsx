@@ -1,3 +1,5 @@
+import SignUpContainer from "../components/SignUp/SignUp.container";
+
 export default function SignUpPage() {
-  return <>회원가입</>;
+  return <SignUpContainer />;
 }
