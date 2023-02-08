@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { signUpApi } from "../../commons/apis/auth/signUp";
+import { isLogin } from "../../commons/utils/auth/isLogin";
 import SignUpUI from "./SignUp.presenter";
 
 export default function SignUpContainer() {
@@ -15,6 +16,12 @@ export default function SignUpContainer() {
     password !== "" &&
     emailErrorTxt === "" &&
     passwordErrorTxt === "";
+
+  useEffect(() => {
+    if (isLogin) {
+      navigate("/todo");
+    }
+  }, []);
 
   function onChangeEmail(e: React.ChangeEvent<HTMLInputElement>) {
     if (e.target.value === "") {

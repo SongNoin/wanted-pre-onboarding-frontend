@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { signInApi } from "../../commons/apis/auth/signIn";
+import { isLogin } from "../../commons/utils/auth/isLogin";
 import SignInPresenter from "./SignIn.presenter";
 
 export default function SignInContainer() {
@@ -8,6 +9,12 @@ export default function SignInContainer() {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
   const isVerifySigninForm = email !== "" && password !== "";
+
+  useEffect(() => {
+    if (isLogin) {
+      navigate("/todo");
+    }
+  }, []);
 
   function onChangeEmail(e: React.ChangeEvent<HTMLInputElement>) {
     setEmail(e.target.value);
