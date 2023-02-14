@@ -13,6 +13,7 @@ export default function CommonInput({ onChange, dataTestId, type }: Props) {
   );
 }
 const StyledInput = styled.input`
+  width: 100%;
   height: 44px;
   padding: 0px 16px;
   border: 1px solid ${colors.ligntMain};

@@ -37,6 +37,14 @@ const H2 = styled.span`
   line-height: 100%;
 `;
 
+const H3 = styled.span`
+  font-family: "Noto Sans KR";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 100%;
+`;
+
 const P1 = styled.span`
   font-family: "Noto Sans KR";
   font-style: normal;
@@ -45,4 +53,4 @@ const P1 = styled.span`
   line-height: 100%;
 `;
 
-export const StyledText = { LogoText, HeaderTitleText, H1, H2, P1 };
+export const StyledText = { LogoText, HeaderTitleText, H1, H2, H3, P1 };

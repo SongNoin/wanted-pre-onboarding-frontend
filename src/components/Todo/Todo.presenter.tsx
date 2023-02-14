@@ -1,5 +1,10 @@
 import styled from "styled-components";
+import CommonButton from "../../commons/Buttons/CommonButton";
+import CommonInput from "../../commons/Inputs/CommonInput";
+import { StyledPadding } from "../../commons/styles/padding";
+import { StyledText } from "../../commons/styles/texts";
 import { ITodo } from "../../commons/types/ITodo";
+import TodoListItem from "./TodoListItem";
 
 interface Props {
   onClickCreateTodo(): void;
@@ -14,11 +19,24 @@ export default function TodoPresenter({
 }: Props) {
   return (
     <Wrap>
-      <input onChange={onChangeNewTodo}></input>
-      <button onClick={onClickCreateTodo}>할 일 추가</button>
-      {todos.map((el) => {
-        return <div key={el.id}>{el.todo}</div>;
-      })}
+      <StyledText.H1>나의 투두</StyledText.H1>
+      <StyledPadding height={30} />
+      <CommonInput onChange={onChangeNewTodo} dataTestId={"new-todo-input"} />
+      <StyledPadding height={30} />
+      <CommonButton
+        text="투두 추가"
+        onClick={onClickCreateTodo}
+        disabled={false}
+        dataTestId={"new-todo-add-button"}
+      />
+      <StyledPadding height={50} />
+      <TodoListWrap>
+        <StyledText.H1>투두 목록</StyledText.H1>
+        <StyledPadding height={20} />
+        {todos.map((el) => {
+          return <TodoListItem content={el.todo} key={el.id} />;
+        })}
+      </TodoListWrap>
     </Wrap>
   );
 }
@@ -26,5 +44,12 @@ export default function TodoPresenter({
 const Wrap = styled.div`
   display: flex;
   flex-direction: column;
-  max-width: 300px;
+  align-items: center;
+  width: 400px;
+`;
+
+const TodoListWrap = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 `;
