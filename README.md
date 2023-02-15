@@ -29,11 +29,14 @@
 - [🔗 과제 가이드 링크](https://github.com/walking-sunset/selection-task) 
 ### ✅ 로그인 / 회원가입
 
+https://user-images.githubusercontent.com/88178866/219009927-243343a5-d242-427a-9e00-2fab8817a23c.mov
+
+<br/>
 
 https://user-images.githubusercontent.com/88178866/219009844-975fbdb6-0f1d-41e1-ba20-6d4165b0540f.mov
 
-https://user-images.githubusercontent.com/88178866/219009927-243343a5-d242-427a-9e00-2fab8817a23c.mov
 
+<br/>
 
 
 - `/signup` 경로에 회원가입 기능을 개발해주세요
