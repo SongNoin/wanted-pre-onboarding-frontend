@@ -10,18 +10,32 @@ interface Props {
   onClickCreateTodo(): void;
   todos: ITodo[];
   onChangeNewTodo: any;
+  onChangeCheckBox: (
+    id: number,
+    todo: string,
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => void;
+  onClickDeleteTodo(id: number): void;
+  onClickUpdateTodo(id: number, todo: string, isCompleted: boolean): void;
 }
 
 export default function TodoPresenter({
   onChangeNewTodo,
   onClickCreateTodo,
+  onChangeCheckBox,
+  onClickDeleteTodo,
+  onClickUpdateTodo,
   todos,
 }: Props) {
   return (
     <Wrap>
       <StyledText.H1>나의 투두</StyledText.H1>
       <StyledPadding height={30} />
-      <CommonInput onChange={onChangeNewTodo} dataTestId={"new-todo-input"} />
+      <CommonInput
+        onChange={onChangeNewTodo}
+        dataTestId={"new-todo-input"}
+        placeholder={"투두를 입력해주세요"}
+      />
       <StyledPadding height={30} />
       <CommonButton
         text="투두 추가"
@@ -33,8 +47,21 @@ export default function TodoPresenter({
       <TodoListWrap>
         <StyledText.H1>투두 목록</StyledText.H1>
         <StyledPadding height={20} />
+        {todos.length === 0 && (
+          <StyledText.P1>현재 등록된 투두가 없습니다!</StyledText.P1>
+        )}
         {todos.map((el) => {
-          return <TodoListItem content={el.todo} key={el.id} />;
+          return (
+            <TodoListItem
+              todoId={el.id}
+              content={el.todo}
+              key={el.id}
+              isCompleted={el.isCompleted}
+              onChangeCheckBox={onChangeCheckBox}
+              onClickDeleteTodo={onClickDeleteTodo}
+              onClickUpdateTodo={onClickUpdateTodo}
+            />
+          );
         })}
       </TodoListWrap>
     </Wrap>
