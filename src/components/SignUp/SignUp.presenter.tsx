@@ -1,4 +1,8 @@
 import styled from "styled-components";
+import CommonButton from "../../commons/Buttons/CommonButton";
+import CommonInput from "../../commons/Inputs/CommonInput";
+import { StyledPadding } from "../../commons/styles/padding";
+import { StyledText } from "../../commons/styles/texts";
 
 interface Props {
   onChangeEmail: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -20,27 +24,35 @@ export default function SignUpUI({
   return (
     <>
       <Wrap>
+        <StyledText.H1>회원가입</StyledText.H1>
+        <StyledPadding height={30} />
         <InputWrap>
-          <span>이메일</span>
-          <input data-testid="email-input" onChange={(e) => onChangeEmail(e)} />
+          <StyledText.H2>이메일</StyledText.H2>
+          <StyledPadding height={10} />
+          <CommonInput
+            dataTestId="email-input"
+            onChange={(e) => onChangeEmail(e)}
+          />
         </InputWrap>
         <ErrorText>{emailErrorTxt}</ErrorText>
+        <StyledPadding height={20} />
         <InputWrap>
-          <span>비밀번호</span>
-          <input
-            data-testid="password-input"
+          <StyledText.H2>비밀번호</StyledText.H2>
+          <StyledPadding height={10} />
+          <CommonInput
+            dataTestId="password-input"
             type="password"
             onChange={(e) => onChangePassword(e)}
           />
         </InputWrap>
         <ErrorText>{passwordErrorTxt}</ErrorText>
-        <button
-          data-testid="signup-button"
+        <StyledPadding height={30} />
+        <CommonButton
+          text="가입하기"
+          dataTestId="signup-button"
           disabled={!isVerifySignupForm}
           onClick={onClickSignUp}
-        >
-          가입하기
-        </button>
+        />
       </Wrap>
     </>
   );
@@ -48,12 +60,14 @@ export default function SignUpUI({
 const Wrap = styled.div`
   display: flex;
   flex-direction: column;
-  max-width: 300px;
+  align-items: center;
+  width: 400px;
 `;
 
 const InputWrap = styled.div`
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
 `;
 

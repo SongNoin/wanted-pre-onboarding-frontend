@@ -1,3 +1,5 @@
+import HomeContainer from "../components/Home/Home.container";
+
 export default function HomePage() {
-  return <>홈</>;
+  return <HomeContainer />;
 }

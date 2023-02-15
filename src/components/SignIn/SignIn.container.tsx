@@ -27,6 +27,7 @@ export default function SignInContainer() {
   function onClickSignIn() {
     signInApi({ email, password })
       .then(() => {
+        window.location.reload();
         navigate("/todo");
         alert("로그인에 성공했습니다!");
       })
