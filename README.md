@@ -9,6 +9,11 @@
    ```bash
    git clone "https://github.com/SongNoin/wanted-pre-onboarding-frontend.git"
    ```
+2. 프로젝트 폴더 진입
+
+   ```bash
+   cd wanted-pre-onboarding-frontend
+   ```
 
 2. module 설치
 
