@@ -8,7 +8,7 @@ interface Props {
   placeholder?: string;
 }
 
-export default function CommonInput({
+export default function SmallCommonInput({
   onChange,
   dataTestId,
   type,
@@ -16,17 +16,16 @@ export default function CommonInput({
 }: Props) {
   return (
     <StyledInput
+      placeholder={placeholder}
       type={type}
       data-testid={dataTestId}
       onChange={onChange}
-      placeholder={placeholder}
     />
   );
 }
 const StyledInput = styled.input`
-  width: 100%;
-  height: 44px;
-  padding: 0px 16px;
+  height: 20px;
+  padding: 0px 4px;
   border: 1px solid ${colors.ligntMain};
   border-radius: 4px;
 `;

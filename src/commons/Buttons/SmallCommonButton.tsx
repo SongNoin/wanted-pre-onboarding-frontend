@@ -3,7 +3,7 @@ import { colors } from "../constants/colors";
 import { StyledText } from "../styles/texts";
 
 interface Props {
-  onClick?: () => void;
+  onClick: () => void | void;
   text: string;
   dataTestId: string;
 }
