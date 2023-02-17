@@ -21,7 +21,9 @@ export default function TodoContainer() {
   }, []);
 
   function getTodosData() {
-    getTodos().then((todoData) => setTodos(todoData));
+    getTodos()
+      .then((todoData) => setTodos(todoData))
+      .catch((e) => alert(e.response.data.message));
   }
 
   function onChangeNewTodo(e: React.ChangeEvent<HTMLInputElement>) {
@@ -29,7 +31,9 @@ export default function TodoContainer() {
   }
 
   function onClickCreateTodo() {
-    createTodo({ todo: newTodo }).then(() => getTodosData());
+    createTodo({ todo: newTodo })
+      .then(() => getTodosData())
+      .catch((e) => alert(e.response.data.message));
   }
 
   function onChangeCheckBox(
@@ -38,7 +42,9 @@ export default function TodoContainer() {
     e: React.ChangeEvent<HTMLInputElement>
   ) {
     const isCompleted = e.target.checked;
-    updateTodo(id, { todo, isCompleted }).then(() => getTodosData());
+    updateTodo(id, { todo, isCompleted })
+      .then(() => getTodosData())
+      .catch((e) => alert(e.response.data.message));
   }
 
   function onClickUpdateTodo(id: number, todo: string, isCompleted: boolean) {
@@ -46,11 +52,15 @@ export default function TodoContainer() {
       alert("수정할 내용이 입력되지 않았습니다.");
       return;
     }
-    updateTodo(id, { todo, isCompleted }).then(() => getTodosData());
+    updateTodo(id, { todo, isCompleted })
+      .then(() => getTodosData())
+      .catch((e) => alert(e.response.data.message));
   }
 
   function onClickDeleteTodo(id: number) {
-    deleteTodo(id).then(() => getTodosData());
+    deleteTodo(id)
+      .then(() => getTodosData())
+      .catch((e) => alert(e.response.data.message));
   }
 
   return (
