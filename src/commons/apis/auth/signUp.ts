@@ -2,5 +2,5 @@ import axios from "axios";
 import { wantedAddress } from "../../constants/api";
 import { IUserAccount } from "../../types/IUserAccount";
 
-export const signUpApi = (userAccount: IUserAccount) =>
-  axios.post(`${wantedAddress}/auth/signup`, userAccount);
+export const signUpApi = async (userAccount: IUserAccount) =>
+  await axios.post(`${wantedAddress}/auth/signup`, userAccount);
